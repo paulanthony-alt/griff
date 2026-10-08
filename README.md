@@ -4,35 +4,47 @@ One self-contained page: `index.html`, plus an `images/` folder for photos. It n
 
 ## 1. Before launch: confirm with the course
 
-These items came from thegriffgolf.org ("Host an Outing" page, checked Oct 2026) or are not published. Each one is marked with a `CONFIRM` comment in `index.html`.
+These items came from thegriffgolf.org (checked Oct 2026) or are not published. Unpublished ones are marked with a `CONFIRM` comment in `index.html`.
 
 | Item | Current copy | Source |
 |---|---|---|
-| Price | $88/player ($68 green fee + $20 cart) | Host an Outing page |
+| Price | $88/player ($68 green fee + $20 cart) | Host an Outing page. $68 matches the 2026 non-member 18-hole peak rate. |
 | Shotgun start | 12:30–1:00 pm | Host an Outing page |
 | Minimum | 80 players | Host an Outing page |
-| Included | Green fees, carts, bag service, scoring & scorecards, cart signage | Host an Outing page |
+| Included | Green fees, carts, scoring & scorecards, cart signs | Host an Outing page |
 | Outing Director phone | 203-531-6176 | Host an Outing page |
 | Season dates | Generic ("during the golf season") | **Not published, so ask** |
 | Deposit terms | "Confirmed in writing when you reserve" | **Not published, so ask** |
-| Rain policy for outings | Generic | **Not published** (only the daily rain check policy is) |
+| Rain policy for outings | Lightning-horn rule + generic | Horn rule from Rules & Regulations; outing terms **not published** |
 | Groups under 80 | "Send an inquiry anyway" | **Ask what they offer** |
-| Eligibility (resident sponsor needed?) | Not mentioned | **Ask.** The course is restricted to Greenwich residents for regular play. |
+| Who can book an outing | Not mentioned | **Ask.** Non-members can play (there are non-member rates), but membership is limited to Greenwich residents. |
+
+### Left off on purpose
+- **Bag service** and **food & beverage / clubhouse**: removed at the owner's direction. Note that the course's own "Host an Outing" page still lists bag service and says "the Restaurant has packages", and griffclubhouse.com is still online. Worth getting the Town's page updated so customers don't see conflicting information.
+- **Food & beverage question** removed from the form for the same reason.
+
+### Other facts used on the page (and where they come from)
+- Named for former First Selectman Griffith E. Harris: Greenwich Free Press coverage of First Selectman history.
+- Bunkers on holes 2, 3, 4, 6 and 7 rebuilt; MGA Public Links Qualifier hosted May 14, 2025: Griff Golf newsletter, June 2025.
+- Multi-year tee box renovation (Kentucky bluegrass): "Golf Course Renovations" news post, Oct 29, 2025.
+- Town men's, women's and junior tournaments: Events/Specials page.
+- Pace of play (4¼ hours), dress code, no alcohol, lightning horn, own clubs and bag: Rules & Regulations page.
+- Range balls $8 / $11 / $20 a bucket: 2026 fee schedule.
 
 ## 2. Photos: replace the stand-ins before launch
 
 Every photo on the page is a **stand-in from Unsplash** (free license), there only so the design can be judged. None of them shows The Griff. Each one is marked with a `STAND-IN PHOTO` comment in `index.html`, and the footer says "Stand-in photography via Unsplash". Remove that footer line once real photos are in.
 
-To swap a photo, put the file in `images/` and replace the Unsplash URL in its `src` (and `srcset` / `data-preview` where present) with `images/your-file.jpg`.
+To swap a photo, put the file in `images/` and replace the Unsplash URL in its `src` (and `srcset` where present) with `images/your-file.jpg`.
 
 | Slot | What to shoot | Size |
 |---|---|---|
 | Hero | Moody wide course shot, morning or late light. Text sits on the lower half. | 2400×1600 |
 | Intro (portrait) | A green with the flagstick | 800×1000 |
-| Event rows (4) | Charity group on the course · Corporate group toasting · Member-guest on a green · Clubhouse table set for a reception | 640×800 portrait |
+| Event rows (3, phones only) | Charity group on the course · Carts lined up for a corporate outing · Club players on a green | 200×240 portrait |
 | What's included background | Wide fairway (it sits under a dark overlay) | 2000×1300 |
-| Add-ons (2) | Clubhouse food · Pro Shop prizes / a ball at the cup | 300×300 |
-| Gallery (7) | Mix of course, clubhouse and past outings (alternates landscape and portrait) | 1400 wide / 900×1125 |
+| Add-ons (2) | Pro Shop prizes / a ball at the cup · The driving range | 300×300 |
+| Gallery (7) | Mix of course shots and past outings (alternates landscape and portrait) | 1400 wide / 900×1125 |
 | Inquiry side photo (desktop) | Tree-lined hole | 1400×1600 |
 
 Use photos the course owns or has rights to. Compress them (e.g. squoosh.app) to under ~300 KB each, and update each `alt` text to describe the real photo.

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Outings &amp; Events | The Griff, Greenwich CT</title>
-<meta name="description" content="Host a charity tournament, corporate outing or private event at Griffith E. Harris Golf Course in Greenwich, CT. Shotgun outings for 80+ players with carts, scoring and catering.">
+<meta name="description" content="Host a charity tournament, corporate outing or club event at Griffith E. Harris Golf Course, Greenwich's public course. Shotgun outings for 80+ players with green fees, carts, scoring and cart signs included.">
 <meta name="theme-color" content="#0b1310">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +57,7 @@
   }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
+  a[href^="tel:"] { white-space: nowrap; }
   [hidden] { display: none !important; }
   h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: .98; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
   em { font-style: italic; }
@@ -166,6 +167,16 @@
     .facts li + li { border-left: 1px solid var(--line); padding-left: 24px; }
   }
 
+  .lately { margin-top: clamp(56px, 8vw, 96px); display: grid; gap: 24px; }
+  .lately ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .lately li { padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+  .lately strong { font: 400 1.5rem/1.1 var(--serif); }
+  .lately span { color: var(--fog); font-size: .9375rem; line-height: 1.55; max-width: 44ch; }
+  @media (min-width: 900px) {
+    .lately ul { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; border-top: 0; }
+    .lately li { border-bottom: 0; border-top: 1px solid var(--line-strong); padding-top: 24px; }
+  }
+
   /* ---------- EVENTS ---------- */
   .events { padding-block: 0 var(--section); }
   .events-head { display: grid; gap: 20px; margin-bottom: clamp(40px, 6vw, 72px); }
@@ -196,10 +207,6 @@
     .event-row:hover .event-arrow { background: var(--bone); color: var(--night); border-color: var(--bone); transform: rotate(-45deg); }
     .event-list:hover .event-row:not(:hover) { opacity: .35; }
   }
-  .event-preview { position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none; width: 300px; will-change: transform; }
-  .event-preview .frame { aspect-ratio: 4 / 5; overflow: hidden; opacity: 0; transform: scale(.82) rotate(-3deg); transition: opacity .35s var(--ease), transform .6s var(--ease); }
-  .event-preview.show .frame { opacity: 1; transform: none; }
-  .event-preview img { width: 100%; height: 100%; object-fit: cover; }
 
   /* ---------- INCLUDED (photo chapter + scorecard) ---------- */
   .included { position: relative; isolation: isolate; overflow: hidden; padding-block: var(--section); }
@@ -499,7 +506,7 @@
         <span class="line"><span>at <em>The Griff</em></span></span>
       </h1>
       <div class="hero-foot">
-        <p class="hero-lede">Shotgun outings for 80 or more players on Greenwich's Robert Trent Jones Sr. course. Carts, scoring and signage are handled, and the Clubhouse can cater.</p>
+        <p class="hero-lede">Shotgun outings for 80 or more players at Greenwich's public golf course, a Robert Trent Jones Sr. design. Green fees, carts, scoring and cart signs are all included.</p>
         <a class="btn btn-bone" href="#inquire">Request a quote<span class="arr"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
       </div>
       <ul class="hero-meta" aria-label="About the course">
@@ -517,7 +524,7 @@
       <div class="intro-grid">
         <div class="reveal">
           <p class="label" id="intro-label">The course</p>
-          <p class="statement">A Robert Trent Jones Sr. course in Greenwich, set up for your group from the <em>first tee</em> to the <em>last toast</em>.</p>
+          <p class="statement">Greenwich's <em>public</em> course, designed by Robert Trent Jones Sr. in 1963 and named for former First Selectman <em>Griffith E. Harris</em>.</p>
         </div>
         <figure class="intro-figure parallax reveal">
           <!-- STAND-IN PHOTO: a green and flagstick at The Griff -->
@@ -531,6 +538,15 @@
         <li><strong>80+</strong><span>Players per shotgun</span></li>
         <li><strong>12:30</strong><span>Shotgun start, pm</span></li>
       </ul>
+      <!-- Source: Griff Golf newsletter (June 2025) and "Golf Course Renovations" news post (Oct 29, 2025) on thegriffgolf.org -->
+      <div class="lately reveal">
+        <p class="label">On the course lately</p>
+        <ul>
+          <li><strong>Rebuilt bunkers</strong><span>Holes 2, 3, 4, 6 and 7 were reshaped, re-grassed and refilled with fresh sand in 2025.</span></li>
+          <li><strong>New tee boxes</strong><span>A multi-year renovation is regrading every tee and laying new Kentucky bluegrass.</span></li>
+          <li><strong>Tournament tested</strong><span>Host of the MGA Public Links Qualifier in May 2025, plus the Town's men's, women's and junior championships.</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -545,39 +561,31 @@
         <p>Choose one to start your inquiry with it selected.</p>
       </div>
       <ul class="event-list">
-        <!-- STAND-IN PHOTOS in data-preview and .event-thumb -->
-        <li><a class="event-row" href="#inquire" data-event="Charity tournament" data-preview="https://images.unsplash.com/photo-1621369132713-4cfdb898dfcb?auto=format&fit=crop&w=640&h=800&q=72">
+        <!-- STAND-IN PHOTOS in .event-thumb (shown on phones only) -->
+        <li><a class="event-row" href="#inquire" data-event="Charity tournament">
           <img class="event-thumb" src="https://images.unsplash.com/photo-1621369132713-4cfdb898dfcb?auto=format&fit=crop&w=200&h=240&q=70" alt="" loading="lazy">
           <span class="event-name">Charity tournaments</span>
-          <span class="event-desc">Fundraising scrambles with hole sponsors, cart signage and prizes. You bring the cause and we run the golf.</span>
+          <span class="event-desc">Fundraising scrambles for nonprofits, parishes and community groups, with cart signs for every player and scoring for the prizes.</span>
           <span class="event-tag">Shotgun · 80+ players</span>
           <span class="event-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
         </a></li>
-        <li><a class="event-row" href="#inquire" data-event="Corporate outing" data-preview="https://images.unsplash.com/photo-1629673120178-53a664eec9e8?auto=format&fit=crop&w=640&h=800&q=72">
-          <img class="event-thumb" src="https://images.unsplash.com/photo-1629673120178-53a664eec9e8?auto=format&fit=crop&w=200&h=240&q=70" alt="" loading="lazy">
+        <li><a class="event-row" href="#inquire" data-event="Corporate outing">
+          <img class="event-thumb" src="https://images.unsplash.com/photo-1602991174407-a015b35a7b00?auto=format&fit=crop&w=200&h=240&q=70" alt="" loading="lazy">
           <span class="event-name">Corporate outings</span>
           <span class="event-desc">Client days and team events with one afternoon shotgun, so everyone tees off and finishes together.</span>
           <span class="event-tag">Client days · Team events</span>
           <span class="event-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
         </a></li>
-        <li><a class="event-row" href="#inquire" data-event="Member-guest" data-preview="https://images.unsplash.com/photo-1634140144664-f84083f1090a?auto=format&fit=crop&w=640&h=800&q=72">
+        <li><a class="event-row" href="#inquire" data-event="Member-guest or club event">
           <img class="event-thumb" src="https://images.unsplash.com/photo-1634140144664-f84083f1090a?auto=format&fit=crop&w=200&h=240&q=70" alt="" loading="lazy">
-          <span class="event-name">Member-guest</span>
-          <span class="event-desc">Club and league days, with scoring and results ready in time for the awards.</span>
+          <span class="event-name">Member-guest &amp; club days</span>
+          <span class="event-desc">Men's and women's clubs, leagues and associations, with scoring and results ready in time for the awards.</span>
           <span class="event-tag">Scoring · Awards</span>
-          <span class="event-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </a></li>
-        <li><a class="event-row" href="#inquire" data-event="Party / reception" data-preview="https://images.unsplash.com/photo-1781090876896-2dd07110eb55?auto=format&fit=crop&w=640&h=800&q=72">
-          <img class="event-thumb" src="https://images.unsplash.com/photo-1781090876896-2dd07110eb55?auto=format&fit=crop&w=200&h=240&q=70" alt="" loading="lazy">
-          <span class="event-name">Parties &amp; receptions</span>
-          <span class="event-desc">Awards dinners, receptions and private gatherings at Clubhouse at the Griff, with or without golf.</span>
-          <span class="event-tag">Clubhouse at the Griff</span>
           <span class="event-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
         </a></li>
       </ul>
     </div>
   </section>
-  <div class="event-preview" aria-hidden="true"><div class="frame"><img alt=""></div></div>
 
   <!-- 3. WHAT'S INCLUDED -->
   <section class="included" id="included" aria-labelledby="included-title">
@@ -593,9 +601,8 @@
           <ul class="included-list">
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Green fees</strong><span>18 holes, every player</span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Golf carts</strong><span>For the full field</span></li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Bag service</strong><span>Met on arrival</span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Scoring &amp; scorecards</strong><span>Results for awards</span></li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Cart signage</strong><span>Names on every cart</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Cart signs</strong><span>Names on every cart</span></li>
           </ul>
         </div>
 
@@ -612,20 +619,21 @@
             </tbody>
           </table>
           <a class="btn" href="#inquire">Request a quote<span class="arr"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-          <p class="card-note">Food, beverage and prizes are quoted separately.</p>
+          <p class="card-note">Prizes and gifts from the Pro Shop are extra.</p>
         </div>
       </div>
 
       <div class="addons">
         <article class="addon reveal">
-          <!-- STAND-IN PHOTO: Clubhouse dining -->
-          <img src="https://images.unsplash.com/photo-1681657687044-9bde75edb38e?auto=format&fit=crop&w=300&h=300&q=70" alt="" loading="lazy">
-          <div><p class="label">Add-on</p><h3>Food &amp; beverage</h3><p>Catering packages from Clubhouse at the Griff, the on-site restaurant.</p></div>
-        </article>
-        <article class="addon reveal">
           <!-- STAND-IN PHOTO: Pro Shop / prizes -->
           <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=300&h=300&q=70" alt="" loading="lazy">
           <div><p class="label">Add-on</p><h3>Prizes &amp; gifts</h3><p>Tee gifts and prizes are available through the Pro Shop.</p></div>
+        </article>
+        <!-- Range ball prices: 2026 fee schedule on thegriffgolf.org -->
+        <article class="addon reveal">
+          <!-- STAND-IN PHOTO: The Griff driving range -->
+          <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=300&h=300&q=70" alt="" loading="lazy">
+          <div><p class="label">Warm-up</p><h3>Practice areas</h3><p>Driving range, putting green, chipping green and practice bunker. Range balls are $8, $11 or $20 a bucket.</p></div>
         </article>
       </div>
     </div>
@@ -636,20 +644,20 @@
     <div class="wrap gallery-head reveal">
       <div>
         <p class="label">Gallery</p>
-        <h2 class="h2" id="gallery-title">The course, the clubhouse, <em>the day</em></h2>
+        <h2 class="h2" id="gallery-title">The course and <em>the day</em></h2>
       </div>
       <div class="rail-ctrl">
         <button type="button" data-rail="-1" aria-label="Previous photos"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
         <button type="button" data-rail="1" aria-label="Next photos"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
     </div>
-    <!-- STAND-IN PHOTOS: replace each with The Griff's own course, clubhouse and past-event photos -->
+    <!-- STAND-IN PHOTOS: replace each with The Griff's own course and past-outing photos -->
     <div class="rail" id="rail" tabindex="0" role="region" aria-label="Photo gallery. Scroll sideways for more.">
       <figure class="land"><img src="https://images.unsplash.com/photo-1500932334442-8761ee4810a7?auto=format&fit=crop&w=1400&q=72" alt="Aerial view of a fairway and bunkers" loading="lazy"><figcaption>The course</figcaption></figure>
-      <figure class="port"><img src="https://images.unsplash.com/photo-1603722346374-d5e3c673ad3f?auto=format&fit=crop&w=900&h=1125&q=72" alt="Clubhouse beside the course" loading="lazy"><figcaption>Clubhouse</figcaption></figure>
+      <figure class="port"><img src="https://images.unsplash.com/photo-1709525617656-5498eefc7d03?auto=format&fit=crop&w=900&h=1125&q=72" alt="Low sun over a tree-lined green" loading="lazy"><figcaption>The course</figcaption></figure>
       <figure class="land"><img src="https://images.unsplash.com/photo-1538648759472-7251f7cb2c2f?auto=format&fit=crop&w=1400&q=72" alt="Bunker and green at sunset" loading="lazy"><figcaption>The course</figcaption></figure>
       <figure class="port"><img src="https://images.unsplash.com/photo-1561251224-e393160cd769?auto=format&fit=crop&w=900&h=1125&q=72" alt="Golf carts lined up before a shotgun start" loading="lazy"><figcaption>Outing day</figcaption></figure>
-      <figure class="land"><img src="https://images.unsplash.com/photo-1781184307914-00ea8c9b3f6f?auto=format&fit=crop&w=1400&q=72" alt="Dinner table set with candles and flowers" loading="lazy"><figcaption>Clubhouse</figcaption></figure>
+      <figure class="land"><img src="https://images.unsplash.com/photo-1621369132713-4cfdb898dfcb?auto=format&fit=crop&w=1400&q=72" alt="A group of golfers beside their cart" loading="lazy"><figcaption>Outing day</figcaption></figure>
       <figure class="port"><img src="https://images.unsplash.com/photo-1699564241478-8bcf8f274c1c?auto=format&fit=crop&w=900&h=1125&q=72" alt="Green framed by tall pines" loading="lazy"><figcaption>The course</figcaption></figure>
       <figure class="land"><img src="https://images.unsplash.com/photo-1606240724602-5b21f896eae8?auto=format&fit=crop&w=1400&q=72" alt="Fairway in autumn color" loading="lazy"><figcaption>The course</figcaption></figure>
     </div>
@@ -694,8 +702,7 @@
               <div class="tiles">
                 <div class="tile"><input type="radio" id="et-charity" name="event_type" value="Charity tournament" required><label for="et-charity">Charity tournament</label></div>
                 <div class="tile"><input type="radio" id="et-corporate" name="event_type" value="Corporate outing"><label for="et-corporate">Corporate outing</label></div>
-                <div class="tile"><input type="radio" id="et-memberguest" name="event_type" value="Member-guest"><label for="et-memberguest">Member-guest</label></div>
-                <div class="tile"><input type="radio" id="et-party" name="event_type" value="Party / reception"><label for="et-party">Party / reception</label></div>
+                <div class="tile"><input type="radio" id="et-memberguest" name="event_type" value="Member-guest or club event"><label for="et-memberguest">Member-guest or club</label></div>
                 <div class="tile"><input type="radio" id="et-other" name="event_type" value="Something else"><label for="et-other">Something else</label></div>
               </div>
               <p class="field-error">Choose the type of event.</p>
@@ -723,16 +730,6 @@
               </div>
             </fieldset>
             <p class="notice" id="size-notice" role="status" hidden>Shotgun outings start at 80 players. Send your inquiry anyway and the Outing Director will go over options for your group size.</p>
-
-            <fieldset class="choice-group">
-              <legend class="group-label">Food &amp; beverage</legend>
-              <div class="chips">
-                <div class="chip"><input type="radio" id="fb-meal" name="food_beverage" value="Meal or reception"><label for="fb-meal">Meal or reception</label></div>
-                <div class="chip"><input type="radio" id="fb-light" name="food_beverage" value="Snacks & drinks"><label for="fb-light">Snacks &amp; drinks</label></div>
-                <div class="chip"><input type="radio" id="fb-none" name="food_beverage" value="Golf only"><label for="fb-none">Golf only</label></div>
-                <div class="chip"><input type="radio" id="fb-unsure" name="food_beverage" value="Not sure yet" checked><label for="fb-unsure">Not sure yet</label></div>
-              </div>
-            </fieldset>
 
             <div class="step-nav js-only">
               <button class="btn btn-bone" type="button" data-next>Continue<span class="arr"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
@@ -830,7 +827,7 @@
         </details>
         <details>
           <summary>What does it cost?<span class="pm" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Golf is $88 per player: a $68 green fee plus a $20 cart. Food, beverage and prizes are quoted separately based on what you choose.</p></div>
+          <div class="answer"><p>Golf is $88 per player: a $68 green fee plus a $20 cart. That covers green fees, carts, scoring, scorecards and cart signs. Prizes and gifts from the Pro Shop are extra.</p></div>
         </details>
         <details>
           <!-- CONFIRM: deposit amount and payment schedule are not published. -->
@@ -840,11 +837,19 @@
         <details>
           <!-- CONFIRM: outing-specific weather policy is not published; the daily rain check policy is. -->
           <summary>What happens if it rains?<span class="pm" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Golf goes ahead in light rain. If the course closes for weather or lightning, the Outing Director will work with you on next steps. The weather terms for your outing are spelled out when you book.</p></div>
+          <div class="answer"><p>Golf goes ahead in light rain. When the course's lightning horn sounds a solid tone, everyone leaves the course and takes shelter; an on-and-off tone means play can resume. If the course closes for weather, the Outing Director will work with you on next steps, and the weather terms for your outing are spelled out when you book.</p></div>
         </details>
         <details>
-          <summary>Can we bring our own food or prizes?<span class="pm" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Food and beverage are handled by Clubhouse at the Griff, the on-site restaurant, and prizes are available through the Pro Shop. Mention any sponsor gifts or special requests in your inquiry.</p></div>
+          <summary>How long does the round take?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="answer"><p>The course asks every group to finish 18 holes in 4¼ hours or less, so a 12:30 shotgun should wrap up around 4:45 pm.</p></div>
+        </details>
+        <details>
+          <summary>What should players wear?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Collared or mock-neck shirts, with sneakers or golf shoes with soft (non-metal) spikes. Jeans, tank tops, short shorts and bathing suits aren't allowed, and staff can turn away players who aren't dressed for the course. Every player needs their own set of clubs, including a putter, carried in a bag.</p></div>
+        </details>
+        <details>
+          <summary>Can we bring alcohol?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="answer"><p>No. Alcohol isn't allowed on the course, and players found with it can be suspended. Please share this with your players ahead of the day.</p></div>
         </details>
       </div>
     </div>
@@ -856,8 +861,8 @@
     <div class="foot-cols">
       <div><p class="label">Visit</p><p>1323 King Street<br>Greenwich, CT 06831</p></div>
       <div><p class="label">Outings</p><a href="tel:+12035316176">203-531-6176</a><p>Outing Director</p></div>
-      <div><p class="label">Pro Shop</p><a href="tel:+12035317200">203-531-7200</a></div>
-      <div><p class="label">More</p><a href="https://www.thegriffgolf.org/" target="_blank" rel="noopener">thegriffgolf.org</a><a href="https://griffclubhouse.com/" target="_blank" rel="noopener">Clubhouse at the Griff</a></div>
+      <div><p class="label">Course</p><a href="tel:+12035317200">203-531-7200</a><p>Main line</p></div>
+      <div><p class="label">More</p><a href="https://www.thegriffgolf.org/" target="_blank" rel="noopener">thegriffgolf.org</a><a href="https://www.thegriffgolf.org/171/Rules-Regulations" target="_blank" rel="noopener">Course rules</a></div>
     </div>
     <p class="megamark" aria-hidden="true">The <em>Griff</em></p>
   </div>
@@ -880,7 +885,6 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* Nav turns solid once the hero scrolls away */
   const nav = $('#nav');
@@ -888,31 +892,8 @@
   new IntersectionObserver(([e]) => nav.classList.toggle('is-solid', !e.isIntersecting),
     { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
 
-  /* Events: photo follows the cursor on desktop */
-  const preview = $('.event-preview');
-  const previewImg = $('img', preview);
-  const rows = $$('.event-row');
-  if (finePointer && !reduceMotion) {
-    rows.forEach(r => { new Image().src = r.dataset.preview; });
-    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
-    const list = $('.event-list');
-    const loop = () => {
-      cx += (x - cx) * 0.14; cy += (y - cy) * 0.14;
-      preview.style.transform = `translate3d(${cx + 32}px, ${cy - 190}px, 0)`;
-      raf = requestAnimationFrame(loop);
-    };
-    list.addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; });
-    list.addEventListener('pointerenter', e => {
-      if (innerWidth < 900) return;
-      cx = x = e.clientX; cy = y = e.clientY;
-      preview.classList.add('show');
-      cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
-    });
-    list.addEventListener('pointerleave', () => { preview.classList.remove('show'); cancelAnimationFrame(raf); });
-    rows.forEach(r => r.addEventListener('pointerenter', () => { previewImg.src = r.dataset.preview; }));
-  }
   /* Choosing an event pre-selects it in the form */
-  rows.forEach(r => r.addEventListener('click', () => {
+  $$('.event-row').forEach(r => r.addEventListener('click', () => {
     const radio = $(`input[name="event_type"][value="${r.dataset.event}"]`);
     if (radio) radio.checked = true;
     if (typeof show === 'function') show(0);
